@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://drxin6ommjpqs"]
+
+[ext_resource type="Script" path="res://objects/game_controller.gd" id="1_yoffu"]
+[ext_resource type="PackedScene" uid="uid://chrceqaijdbfm" path="res://objects/_shape_to_fill.tscn" id="2_i82xu"]
+[ext_resource type="PackedScene" uid="uid://c82ajfadhujaw" path="res://objects/l_piece.tscn" id="3_oq7t8"]
+[ext_resource type="PackedScene" uid="uid://cp7fph5yd1ipw" path="res://objects/small_l.tscn" id="4_ung86"]
+[ext_resource type="PackedScene" uid="uid://dx1juha1rke1s" path="res://objects/two_by_one.tscn" id="5_voipt"]
+[ext_resource type="Script" path="res://objects/Label.gd" id="6_dtig5"]
+
+[node name="main_scene" type="Node3D"]
+script = ExtResource("1_yoffu")
+
+[node name="_shapeToFill" parent="." instance=ExtResource("2_i82xu")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.781281, 0.62418, 0, -0.62418, 0.781281, 0, 3.82477, 4.76323)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.571134, 3.15642, 1.95532)
+light_energy = 1.5
+light_indirect_energy = 6.0
+omni_range = 25.0
+omni_attenuation = 0.007041
+
+[node name="LPiece" parent="." instance=ExtResource("3_oq7t8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+
+[node name="two_by_one" parent="." instance=ExtResource("5_voipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -1)
+
+[node name="small_L" parent="." instance=ExtResource("4_ung86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -56.5
+offset_right = 307.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Level Complete!"
+script = ExtResource("6_dtig5")

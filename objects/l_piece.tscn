@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c82ajfadhujaw"]
+
+[ext_resource type="Script" path="res://objects/move_and_place.gd" id="1_kw7ns"]
+[ext_resource type="Material" uid="uid://b4xmc5m5yn223" path="res://materials/orange.tres" id="2_qn1ba"]
+
+[node name="LPiece" type="CSGBox3D"]
+size = Vector3(3, 1, 1)
+material = ExtResource("2_qn1ba")
+script = ExtResource("1_kw7ns")
+starting_material = ExtResource("2_qn1ba")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+material = ExtResource("2_qn1ba")
